@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pattern Generator</title>
+</head>
+<body>
+    <h1>Pattern Generator</h1>
+    <label for="rows">Enter how many lines: </label>
+    <input type="number" id="rows" min="1">
+    <button onclick="generatePattern()">Generate</button>
+    <pre id="pattern"></pre>
+
+    <script>
+        function generatePattern() {
+            let row = parseInt(document.getElementById('rows').value);
+            let pattern = "";
+
+            // Generating pattern
+            for (let i = 1; i <= row; i++) {
+                // for increasing pattern
+                for (let j = 1; j <= i; j++) {
+                    pattern += j;
+                }
+                
+                // for decreasing pattern 
+                for (let j = i - 1; j > 0; j--) {
+                    pattern += j;
+                }
+                
+                // Moving to next line
+                pattern += '\n';
+            }
+
+            document.getElementById('pattern').textContent = pattern;
+        }
+    </script>
+</body>
+</html>
